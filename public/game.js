@@ -1,10 +1,12 @@
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
+import { update as updateScore, draw as drawScore } from './score.js';
 import { outsideGrid } from './grid.js';
 
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById('game-board');
+const scoreBoard = document.getElementById('game-score-card');
 
 function main(currentTime) {
 
@@ -32,12 +34,14 @@ window.requestAnimationFrame(main);
 function update() {
     updateSnake()
     updateFood()
+    updateScore()
     checkDeath()
 }
 function draw() {
     gameBoard.innerHTML = '';
     drawSnake(gameBoard)
     drawFood(gameBoard);
+    drawScore(scoreBoard)
 }
 
 function checkDeath() {
