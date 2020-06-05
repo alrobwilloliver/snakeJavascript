@@ -21,8 +21,6 @@ app.use(express.urlencoded({
 
 app.get('/', (req, res) => {
 
-
-
     res.sendFile(__dirname + '/index.html')
 })
 
@@ -48,8 +46,8 @@ app.post('/api/newScore', async (req, res) => {
     })
 })
 
-const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
-mongoose.connect(DB, {
+// const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
