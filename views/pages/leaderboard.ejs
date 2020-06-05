@@ -60,6 +60,22 @@
             max-width: 76em;
         }
 
+        #button {
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            background-color: #008CBA;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            /* margin-bottom: 100px; */
+        }
+
+        #button:link,
+        #button:visited {
+            text-decoration: none;
+        }
+
         .rb-grid {
             list-style: none;
             text-align: center;
@@ -214,6 +230,7 @@
     <div id="leaderboard">
         <header>
             <h1>Snake Leaderboard</h1>
+            <a id="button" href="/">Play</a>
         </header>
         <div class="main">
             <ol id="rb-grid" class="rb-grid clearfix">

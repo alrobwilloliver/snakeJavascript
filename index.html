@@ -39,6 +39,21 @@
             font-size: 25px;
         }
 
+        #button {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            background-color: #008CBA;
+            border-radius: 5px;
+            padding: 5px;
+            color: white;
+        }
+
+        #button:link,
+        #button:visited {
+            text-decoration: none;
+        }
+
         .snake {
             background-color: hsl(200, 100%, 50%);
             border: .25vmin solid black;
@@ -53,6 +68,7 @@
 
 <body>
     <div id="game-board" defer type="module"></div>
+    <a id="button" href="/leaderboard">Leaderboard</a>
     <div id="game-score-card"></div>
 </body>
 
