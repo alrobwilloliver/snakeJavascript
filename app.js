@@ -3,6 +3,11 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const mongoose = require('mongoose');
 const app = express();
+const path = require('path');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 const port = 3000;
 const Score = require('./public/model/scoreModel')
 
@@ -21,11 +26,12 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/leaderboard', (req, res) => {
+app.get('/leaderboard', async (req, res) => {
 
-    // Score.find
+    const scores = await Score.find().sort({ score: -1 });
+    console.log(scores);
 
-    res.sendFile(__dirname + '/leaderboard.html')
+    res.render('pages/leaderboard', { scores })
 })
 
 app.post('/', async (req, res) => {
