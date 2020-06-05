@@ -34,12 +34,12 @@ app.get('/leaderboard', async (req, res) => {
     res.render('pages/leaderboard', { scores })
 })
 
-app.post('/', async (req, res) => {
-    // console.log(req.body);
+app.post('/api/newScore', async (req, res) => {
+    console.log(req.body);
     const score = new Score({ name: req.body.name, score: req.body.score });
 
     await score.save(function (err) {
-        if (err) return handleError(err);
+        if (err) return console.log(err)
     })
 
     res.status(201).json({

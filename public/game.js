@@ -1,4 +1,4 @@
-import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from './snake.js';
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, getSnakeLength } from './snake.js';
 import { update as updateFood, draw as drawFood } from './food.js';
 import { update as updateScore, draw as drawScore } from './score.js';
 import { outsideGrid } from './grid.js';
@@ -7,11 +7,34 @@ let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById('game-board');
 const scoreBoard = document.getElementById('game-score-card');
+let player = ''
 
 function main(currentTime) {
 
     if (gameOver) {
-        if (confirm('You lost. Press ok to restart.')) {
+        player = '';
+        player = prompt('Enter your name (4-8 chars) to submit your score. Press ok to continue playing.')
+        if (player.length < 9 && player.length > 3) {
+            const playerScore = getSnakeLength();
+            console.log(playerScore)
+            console.log(player)
+            const data = {
+                name: player,
+                score: playerScore
+            }
+            // console.log(data);
+            fetch("/api/newScore", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                console.log("Request complete! response:", res);
+            }).catch(err => {
+                console.log("There was a problem sending the data", err);
+            })
+
             window.location = '/'
         }
         return
