@@ -32,7 +32,7 @@ app.get('/leaderboard', async (req, res) => {
     res.render('pages/leaderboard', { scores })
 })
 
-app.post('/api/newScore', async (req, res) => {
+app.post('api/newScore', async (req, res) => {
     console.log(req.body);
     const score = new Score({ name: req.body.name, score: req.body.score });
 
