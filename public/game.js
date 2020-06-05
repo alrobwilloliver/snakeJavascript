@@ -23,7 +23,7 @@ function main(currentTime) {
                 score: playerScore
             }
             // console.log(data);
-            fetch("https://playmysnake.herokuapp.com//api/newScore", {
+            fetch("https://playmysnake.herokuapp.com/api/newScore", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
