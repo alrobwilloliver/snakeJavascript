@@ -16,8 +16,8 @@ function main(currentTime) {
         player = prompt('Enter your name (4-8 chars) to submit your score. Press ok to continue playing.')
         if (player.length < 9 && player.length > 3) {
             const playerScore = getSnakeLength();
-            console.log(playerScore)
-            console.log(player)
+            // console.log(playerScore)
+            // console.log(player)
             const data = {
                 name: player,
                 score: playerScore
@@ -32,12 +32,12 @@ function main(currentTime) {
             }).then(res => {
 
                 console.log("Request complete! response:", res);
-                // window.location = '/'
+
             }).catch(err => {
 
                 console.log("There was a problem sending the data", err);
 
-                // window.location = '/'
+
             })
             window.location = '/'
         }
