@@ -6,7 +6,7 @@ const scoreSchema = new mongoose.Schema({
         required: true
     },
     score: {
-        type: Number,
+        type: String,
         required: true
     }
 })

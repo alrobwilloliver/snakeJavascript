@@ -19,6 +19,11 @@ app.use(express.urlencoded({
     limit: '10kb'
 }))
 
+app.use((req, res, next) => {
+    req.header('Access-Control-Allow-Origin', '*')
+    next()
+})
+
 app.get('/', (req, res) => {
 
     res.sendFile(__dirname + '/index.html')

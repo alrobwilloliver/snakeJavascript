@@ -30,11 +30,15 @@ function main(currentTime) {
                     'Content-Type': 'application/json'
                 }
             }).then(res => {
-                console.log("Request complete! response:", res);
-            }).catch(err => {
-                console.log("There was a problem sending the data", err);
-            })
 
+                console.log("Request complete! response:", res);
+                // window.location = '/'
+            }).catch(err => {
+
+                console.log("There was a problem sending the data", err);
+
+                // window.location = '/'
+            })
             window.location = '/'
         }
         return
