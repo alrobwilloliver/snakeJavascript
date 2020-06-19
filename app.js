@@ -31,9 +31,10 @@ app.get('/', (req, res) => {
 
 app.get('/leaderboard', async (req, res) => {
 
-    const scores = await Score.find().map(el => {
-        parseInt(el.score)
-    }).sort({ score: -1 });
+    const scores = await Score.find();
+    scores = scores.map(el => {
+        parseInt(el.score);
+    }).sort({ score: -1 })
     // .sort({ score: -1 });
     // console.log(scores);
 
