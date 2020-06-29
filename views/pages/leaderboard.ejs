@@ -6,13 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <style>
-        html,
-        :root,
         body {
             background: radial-gradient(ellipse farthest-corner at center, #8f4242 0%, #f8008f 100%) no-repeat;
             background-size: cover;
-            height: 100%;
-            overflow: auto;
         }
 
         #leaderboard {
@@ -60,10 +56,14 @@
             max-width: 76em;
         }
 
+        header {
+            position: relative;
+        }
+
         #button {
             position: absolute;
-            top: 10%;
-            left: 15%;
+            top: 25%;
+            left: 2%;
             background-color: #008CBA;
             border-radius: 5px;
             padding: 10px;
@@ -87,9 +87,9 @@
             border: 1px solid rgba(0, 0, 0, .25);
             box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
             box-sizing: border-box;
-            cursor: pointer;
             display: list-item;
-            float: left;
+            float: right;
+            width: 100%;
             font-size: 1.125rem;
             font-style: italic;
             list-style-position: inside;
